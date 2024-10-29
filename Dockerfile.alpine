@@ -1,0 +1,38 @@
+FROM alpine
+
+WORKDIR /usr/src/
+
+RUN apk add --no-cache \
+  curl \
+  dpkg \
+  glib-dev \
+  gtk+3.0 \
+  gtk+3.0-dev \
+  libc6-compat \
+  libatk-1.0 \
+  libstdc++ \
+  webkit2gtk \
+  webkit2gtk-dev
+
+COPY downloadGithub.sh .
+
+RUN chmod +x downloadGithub.sh
+
+RUN ./downloadGithub.sh
+
+RUN dpkg --add-architecture amd64
+
+#RUN dpkg --install modelio-open-source-5.4.1_amd64.deb
+
+#FROM jlesage/baseimage-gui:alpine-3.19-v4
+#
+## Install xterm.
+#RUN add-pkg xterm
+#
+## Copy the start script.
+#COPY startapp.sh /startapp.sh
+#
+#RUN chmod +x /startapp.sh
+#
+## Set the name of the application.
+#RUN set-cont-env APP_NAME "Xterm"

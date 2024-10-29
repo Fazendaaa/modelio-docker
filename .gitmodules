@@ -1,0 +1,3 @@
+[submodule "modelio"]
+	path = modelio
+	url = https://github.com/ModelioOpenSource/Modelio
