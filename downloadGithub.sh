@@ -12,5 +12,3 @@ wget "https://github.com/${USERNAME}/${REPO}/releases/download/${VER}/${FILENAME
 
 dpkg --add-architecture amd64
 dpkg --install ${FILENAME}
-
-export MODELIO

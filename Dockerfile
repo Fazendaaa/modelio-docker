@@ -20,11 +20,12 @@ RUN sed-patch 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ENV LANG="en_US.UTF-8"
 
 COPY downloadGithub.sh .
-COPY startapp.sh /startapp.sh
 
 RUN chmod +x downloadGithub.sh
-RUN chmod +x /startapp.sh
-
 RUN ./downloadGithub.sh
+
+COPY startapp.sh /startapp.sh
+
+RUN chmod +x /startapp.sh
 
 RUN set-cont-env APP_NAME "modelio"
