@@ -14,3 +14,6 @@ interact: build
 		-it \
 		${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} \
 		/bin/sh
+
+publish:
+	@docker buildx build --push --tag ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} .

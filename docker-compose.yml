@@ -7,6 +7,8 @@ services:
       - TZ=America/Sao_Paulo
       - USER_ID=0
       - GROUP_ID=0
+    volumes:
+      - ${PWD}/workspace:/root/modelio/workspace
     ports:
       - 5800:5800
       - 5900:5900
